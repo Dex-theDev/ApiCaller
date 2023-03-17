@@ -22,6 +22,13 @@
     <artifactId>gson</artifactId>
     <version>2.10.1</version>
 </dependency>
+        <dependency>
+  <groupId>io.norberg</groupId>
+  <artifactId>auto-matter</artifactId>
+  <version>0.26.1</version>
+  <scope>provided</scope>
+</dependency>
+
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>httpclient</artifactId>
@@ -45,6 +52,35 @@
 
 
     </dependencies>
+<build>
+  <plugins>
+   	<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+    <groupId>com.coveo</groupId>
+    <artifactId>fmt-maven-plugin</artifactId>
+    <version>2.9</version>
+    <configuration>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <verbose>false</verbose>
+        <filesNamePattern>.*\.java</filesNamePattern>
+        <skip>false</skip>
+        <skipSortingImports>false</skipSortingImports>
+        <style>google</style>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>check</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+  </plugins>
+</build>
 
 
 
